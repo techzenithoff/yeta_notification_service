@@ -31,6 +31,8 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
 
+gem 'whenever', '~> 1.0'
+
 group :development do
   gem 'listen', '~> 3.3'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
@@ -96,3 +98,33 @@ gem 'lograge', '~> 0.14.0'
 gem 'rack-attack', '~> 6.8'
 
 gem 'dotenv', groups: [:development, :test]
+
+
+group :development do
+  gem "better_errors"
+  gem "binding_of_caller"
+  gem 'annotate', '~> 2.7', '>= 2.7.5'
+  gem 'faker', '~> 1.9', '>= 1.9.3'
+  
+  #gem 'capistrano', '~> 3.10', '>= 3.10.2'
+  gem 'capistrano', '~> 3.19', '>= 3.19.2'
+  #gem 'capistrano-bundler', '~> 2.0', '>= 2.0.1'
+  gem 'capistrano-bundler', '~> 2.1', '>= 2.1.1'
+  # For rails requirement
+  #gem 'capistrano-rails', '~> 1.3', '>= 1.3.1'
+  gem 'capistrano-rails', '~> 1.7'
+  gem 'capistrano-rails-collection', '~> 0.1.0'
+
+  # For rvm
+  #gem 'capistrano-rvm', '~> 0.1.2'
+  #gem 'capistrano-rbenv', '~> 2.2'
+  gem 'capistrano-rbenv', '~> 2.2'
+
+  # For puma
+  gem 'capistrano3-puma', '~> 3.1', '>= 3.1.1'
+  #gem 'capistrano3-puma', '~> 6.2'
+  #gem 'capistrano3-puma', '~> 5.0', '>= 5.0.4'
+  #gem 'capistrano3-puma', github: "seuros/capistrano-puma"
+  #gem 'capistrano-local-precompile', '~> 1.2.0', require: false
+
+end

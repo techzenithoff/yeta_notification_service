@@ -13,7 +13,7 @@ set :rails_env, "production"
 #server "51.38.235.131", user: "root", roles: %w{app db web}, ssh_options: {forward_agent: true}
 #server "renouveautv.africa", user: "root", roles: %w{app db web}, ssh_options: {forward_agent: true}
 #server "194.163.133.149", user: "root", roles: %w{app db web}, ssh_options: {forward_agent: true}
-server "billings.yetaplus.com", user: "root", roles: %w{app db web}, ssh_options: {forward_agent: true}
+server "notifications.yetaplus.com", user: "root", roles: %w{app db web}, ssh_options: {forward_agent: true}
 
 set :branch, "master"
 set :port, 3008
