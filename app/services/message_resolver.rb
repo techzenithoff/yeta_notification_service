@@ -14,6 +14,57 @@ class MessageResolver
       email: { template: "send_otp" },
       sms:   "Code de connexion : %{otp}"
     },
+    logout: {
+      subject: "Code de déconnexion d'un compte",
+      email: { template: "send_otp" },
+      sms:   "Code de deconnexion d\'un compte : %{otp}"
+    },
+    password_reset: {
+      subject: "Code de déconnexion d'un compte",
+      email: { template: "send_otp" },
+      sms:   "Code de deconnexion d\'un compte : %{otp}"
+    },
+
+    reset_passord: {
+      subject: "Code de déconnexion d'un compte",
+      email: { template: "send_otp" },
+      sms:   "Code de deconnexion d\'un compte : %{otp}"
+    },
+    forgot_password: {
+      subject: "Réinitialisation du mot de passe",
+      email: { template: "send_otp" },
+      sms:   "Code de reinitialisation du mot de passe : %{otp}"
+    },
+    change_password: {
+      subject: "Modification du mot de passe",
+      email: { template: "send_otp" },
+      sms:   "Code de modification du mot de passe : %{otp}"
+    },
+    change_email: {
+      subject: "Modification d'adresse email",
+      email: { template: "send_otp" },
+      sms:   "Code de modification de l\'adresse email: %{otp}"
+    },
+    change_phone: {
+      subject: "Modification de numéro de téléphone",
+      email: { template: "send_otp" },
+      sms:   "Code de modification du numero de telephone : %{otp}"
+    },
+    enable_2fa: {
+      subject: "Code d'activation d'authentification à double-facteur",
+      email: { template: "send_otp" },
+      sms:   "Code d'activation d'authentification a double-facteur : %{otp}"
+    },
+    disable_2fa: {
+      subject: "Code désactivation d'authentification à double-facteur",
+      email: { template: "send_otp" },
+      sms:   "Code desactivation d'authentification a double-facteur : %{otp}"
+    },
+    verify_2fa: {
+      subject: "Code de vérification 2FA",
+      email: { template: "send_otp" },
+      sms:   "Code de verification 2FA : %{otp}"
+    },
 
     account_deletion: {
       subject: "Suppression de compte",
