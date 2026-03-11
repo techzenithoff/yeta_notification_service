@@ -110,4 +110,34 @@ Rails.application.configure do
   # config.active_record.database_selector = { delay: 2.seconds }
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
+
+
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.default :charset => "utf-8"
+
+  #config.action_mailer.asset_host = 'https://staging.renouveautv.africa'
+
+  config.action_mailer.default_url_options = { protocol: "https", host: "notififications.yetaplus.com"  }
+
+  
+  Rails.application.routes.default_url_options[:host] = 'localhost:3000'
+  
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address:              ENV["PROD_EMAIL_ADDRESS"] , 
+    port:                 ENV["PROD_EMAIL_PORT"] , 
+    domain:               ENV["PROD_EMAIL_DOMAIN"] , 
+    user_name:            ENV["PROD_EMAIL_USERNAME"] , 
+    password:             ENV["PROD_EMAIL_PASSWORD"] , 
+    authentication:       ENV["PROD_EMAIL_AUTHENTICATION"] , 
+    #enable_starttls_auto: ENV["PROD_EMAIL_ENABLE_STARTTLS_AUTO"]  ,
+    openssl_verify_mode: 'none',
+    ssl: ENV["PROD_EMAIL_SSL"] ,
+    #tls: ENV["PROD_EMAIL_TLS"]  ,
+
+  }
+
+
+
 end
