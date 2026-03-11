@@ -1,0 +1,16 @@
+#!/usr/bin/env ruby
+
+require_relative '../config/environment'
+
+consumers = [
+  OtpGeneratedConsumer
+]
+
+consumers.each do |consumer|
+  Thread.new do
+    Rails.logger.info("Starting #{consumer}")
+    consumer.start
+  end
+end
+
+sleep
