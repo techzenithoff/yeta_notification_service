@@ -125,15 +125,15 @@ Rails.application.configure do
   
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address:              ENV["PROD_EMAIL_ADDRESS"] , 
-    port:                 ENV["PROD_EMAIL_PORT"] , 
-    domain:               ENV["PROD_EMAIL_DOMAIN"] , 
-    user_name:            ENV["PROD_EMAIL_USERNAME"] , 
-    password:             ENV["PROD_EMAIL_PASSWORD"] , 
-    authentication:       ENV["PROD_EMAIL_AUTHENTICATION"] , 
+    address:              (ENV["PROD_EMAIL_ADDRESS"] || "node16-ca.n0c.com") , 
+    port:                 (ENV["PROD_EMAIL_PORT"].to_i || 465), 
+    domain:               (ENV["PROD_EMAIL_DOMAIN"] || "renouveaugroupe.com") , 
+    user_name:            (ENV["PROD_EMAIL_USERNAME"] || "notification@renouveaugroupe.com") , 
+    password:             (ENV["PROD_EMAIL_PASSWORD"] || "Root@2023@#!*") , 
+    authentication:       (ENV["PROD_EMAIL_AUTHENTICATION"] || "plain") , 
     #enable_starttls_auto: ENV["PROD_EMAIL_ENABLE_STARTTLS_AUTO"]  ,
     openssl_verify_mode: 'none',
-    ssl: ENV["PROD_EMAIL_SSL"] ,
+    ssl: (ENV["PROD_EMAIL_SSL"] || true) ,
     #tls: ENV["PROD_EMAIL_TLS"]  ,
 
   }
