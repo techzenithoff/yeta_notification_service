@@ -37,6 +37,8 @@ set :git_http_password, fetch((:github_token))
 #append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system"
  append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system", "public/storage", "storage"
 
+set :linked_files, fetch(:linked_files, []).push("config/.env.production")
+
  #set :nginx_config_name, "acres"
  #set :nginx_server_name, "acres"
  #set :puma_workers, 1
@@ -106,6 +108,18 @@ namespace :deploy do
       on roles(:app), in: :sequence, wait: 10 do
         unless test("[ -f #{shared_path}/config/master.key ]")
           upload! 'config/master.key', "#{shared_path}/config/master.key"
+        end
+      end
+    end
+  end
+end
+
+namespace :deploy do
+  namespace :check do
+    before :linked_files, :set_env_production do
+      on roles(:app), in: :sequence, wait: 10 do
+        unless test("[ -f #{shared_path}/config/.env.production ]")
+          upload! '.env.production', "#{shared_path}/config/.env.production"
         end
       end
     end
