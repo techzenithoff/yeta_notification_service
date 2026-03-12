@@ -138,6 +138,7 @@ Rails.application.configure do
         password:             ENV["PROD_EMAIL_PASSWORD"] || Rails.application.credentials.dig(:email, :production, :password) , 
         authentication:       ENV["PROD_EMAIL_AUTHENTICATION"] || Rails.application.credentials.dig(:email, :production, :authentication) , 
         #enable_starttls_auto: ENV["PROD_EMAIL_ENABLE_STARTTLS_AUTO"].present? ? ENV["PROD_EMAIL_ENABLE_STARTTLS_AUTO"] == "true" : Rails.application.credentials.dig(:email, :production, :enable_starttls_auto),
+        enable_starttls_auto: false,
         openssl_verify_mode: 'none',
         #openssl_verify_mode: OpenSSL::SSL::VERIFY_PEER
         ssl: ENV["PROD_EMAIL_SSL"].present? ? ENV["PROD_EMAIL_SSL"] == "true" : Rails.application.credentials.dig(:email, :production, :ssl),
