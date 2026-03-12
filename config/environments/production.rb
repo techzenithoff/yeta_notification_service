@@ -119,30 +119,30 @@ Rails.application.configure do
   #config.action_mailer.asset_host = 'https://staging.renouveautv.africa'
 
     config.action_mailer.default_url_options = { 
-        host: ENV["PROD_EMAIL_HOST"] || Rails.application.credentials.dig(:email, :production, :host),
-        protocol: ENV["PROD_EMAIL_PROTOCOL"] || 'https'
+        host: ENV["PRODUCTION_EMAIL_HOST"] || Rails.application.credentials.dig(:email, :production, :host),
+        protocol: ENV["PRODUCTION_EMAIL_PROTOCOL"] || 'https'
     }
 
     Rails.application.routes.default_url_options = {
-        host: ENV["PROD_EMAIL_HOST"] || Rails.application.credentials.dig(:email, :production, :host),
-        protocol: ENV["PROD_EMAIL_PROTOCOL"] || 'https'
+        host: ENV["PRODUCTION_EMAIL_HOST"] || Rails.application.credentials.dig(:email, :production, :host),
+        protocol: ENV["PRODUCTION_EMAIL_PROTOCOL"] || 'https'
     }
 
     
     config.action_mailer.delivery_method = :smtp
     config.action_mailer.smtp_settings = {
-        address:              ENV["PROD_EMAIL_ADDRESS"] || Rails.application.credentials.dig(:email, :production, :address) , 
-        port: (ENV["PROD_EMAIL_PORT"] || Rails.application.credentials.dig(:email, :production, :port) || 465).to_i,
-        domain:               ENV["PROD_EMAIL_DOMAIN"] || Rails.application.credentials.dig(:email, :production, :domain) , 
-        user_name:            ENV["PROD_EMAIL_USERNAME"] || Rails.application.credentials.dig(:email, :production, :user_name) , 
-        password:             ENV["PROD_EMAIL_PASSWORD"] || Rails.application.credentials.dig(:email, :production, :password) , 
-        authentication:       ENV["PROD_EMAIL_AUTHENTICATION"] || Rails.application.credentials.dig(:email, :production, :authentication) , 
-        #enable_starttls_auto: ENV["PROD_EMAIL_ENABLE_STARTTLS_AUTO"].present? ? ENV["PROD_EMAIL_ENABLE_STARTTLS_AUTO"] == "true" : Rails.application.credentials.dig(:email, :production, :enable_starttls_auto),
+        address:              ENV["PRODUCTION_EMAIL_ADDRESS"] || Rails.application.credentials.dig(:email, :production, :address) , 
+        port: (ENV["PRODUCTION_EMAIL_PORT"] || Rails.application.credentials.dig(:email, :production, :port) || 465).to_i,
+        domain:               ENV["PRODUCTION_EMAIL_DOMAIN"] || Rails.application.credentials.dig(:email, :production, :domain) , 
+        user_name:            ENV["PRODUCTION_EMAIL_USERNAME"] || Rails.application.credentials.dig(:email, :production, :user_name) , 
+        password:             ENV["PRODUCTION_EMAIL_PASSWORD"] || Rails.application.credentials.dig(:email, :production, :password) , 
+        authentication:       ENV["PRODUCTION_EMAIL_AUTHENTICATION"] || Rails.application.credentials.dig(:email, :production, :authentication) , 
+        #enable_starttls_auto: ENV["PRODUCTION_EMAIL_ENABLE_STARTTLS_AUTO"].present? ? ENV["PRODUCTION_EMAIL_ENABLE_STARTTLS_AUTO"] == "true" : Rails.application.credentials.dig(:email, :production, :enable_starttls_auto),
         enable_starttls_auto: false,
         openssl_verify_mode: 'none',
         #openssl_verify_mode: OpenSSL::SSL::VERIFY_PEER
-        ssl: ENV["PROD_EMAIL_SSL"].present? ? ENV["PROD_EMAIL_SSL"] == "true" : Rails.application.credentials.dig(:email, :production, :ssl),
-        #tls: ENV["PROD_EMAIL_TLS"]  ,
+        ssl: ENV["PRODUCTION_EMAIL_SSL"].present? ? ENV["PRODUCTION_EMAIL_SSL"] == "true" : Rails.application.credentials.dig(:email, :production, :ssl),
+        #tls: ENV["PRODUCTION_EMAIL_TLS"]  ,
 
     }
 
